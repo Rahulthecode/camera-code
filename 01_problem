@@ -1,0 +1,21 @@
+def convert(s: str, numRows: int) -> str:
+    if numRows == 1:
+        return s
+
+    rows = [""] * numRows
+    row = 0
+    goingDown = False
+
+    for c in s:
+        rows[row] += c
+        if row == numRows - 1:
+            goingDown = False
+        elif row == 0:
+            goingDown = True
+        row += 1 if goingDown else -1
+
+    return "".join(rows)
+
+
+
+
